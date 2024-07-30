@@ -46,11 +46,11 @@ class Chaine
         # REMARQUE mettre argument dans le constructeur
         def stringCompression(chaine)
             chaine = chaine.downcase.to_s
-            hash = Hash.new(0)
+            
+          hash = Hash.new(0)
             chaine.each_char do |char|
               hash[char] += 1
             end
-          
             hash.each do |key, value|
               #puts "#{key}#{value}" if value > 1
             @hash = hash.map{|k,v| "#{k}#{v}"}.join('')
