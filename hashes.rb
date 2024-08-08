@@ -72,7 +72,8 @@ def array_of_hashes_with_nested_arrays
     students.each do |student|
       # average_grade = calculate_average_grade(student[:grades])
 			average_grade = student[:grades].sum / student[:grades].size.to_f
-      puts "EXO 1 : Average grade for  #{student[:name]} est #{average_grade.round(2)}"
+      # puts "EXO 1 : Average grade for  #{student[:name]} est #{average_grade.round(2)}"
+      average_grade
     end
 end
 
@@ -92,36 +93,47 @@ def nested_data_structures_manipulation
   people_reading_hobby = people.select do |person|
     person[:hobbies].include?("reading")
   end
+  # Déf méthode .each permet de parcourir chaque élément de la collection tableau/Hash/Objet
+  # Le bloc de code : Le code entre do et end est exécuté pour chaque élément du tableau.
+  # |number| : Entre les barres verticales, nous définissons une variable (ici number) qui représente l’élément courant du tableau.
+	# puts number : Affiche la valeur de number.
+
+  # •	Tableau : numbers = [1, 2, 3, 4, 5]
+	# •	Méthode .each : numbers.each parcourt chaque élément du tableau numbers.
+	# •	Bloc de code : Le code entre do et end est exécuté pour chaque élément du tableau.
+	# •	|number| : Entre les barres verticales, nous définissons une variable (ici number) qui représente l’élément courant du tableau.
+	# •	puts number : Affiche la valeur de number.
 
   # Afficher les noms des personnes ayant "reading" comme passe-temps
-  puts "EXO 2 : People who have “reading” as a hobby :"
-  people_reading_hobby.each do |person|
-    puts person[:person][:name]
-  end
+  # puts "EXO 2 : People who have “reading” as a hobby :"
+  # people_reading_hobby.each do |person|
+  #   puts person[:person][:name]
+  # end
+  people_reading_hobby
 end
 
-#nested_data_structures_manipulation()
+print nested_data_structures_manipulation
 
 
 #EXO B2 V2
-def nested_data_structures_manipulation
-    student = [
-      {person: { name: "Anna", age: 21}, hobies: ["foot", "basket", "judo"] },
-      {person: { name: "Paul", age: 22}, hobies: ["foot", "reading", "chess"] },
-      {person: { name: "Olga", age: 23}, hobies: ["reading", "basket", "judo"] },
-      {person: { name: "Jack", age: 24}, hobies: ["reading", "basket", "judo"] }
-    ]
-		def reading_as_hobby_test(hobies)
-			reading_as_hobby_result = hobies.include?("reading")
-		end
+# def nested_data_structures_manipulation
+#     student = [
+#       {person: { name: "Anna", age: 21}, hobies: ["foot", "basket", "judo"] },
+#       {person: { name: "Paul", age: 22}, hobies: ["foot", "reading", "chess"] },
+#       {person: { name: "Olga", age: 23}, hobies: ["reading", "basket", "judo"] },
+#       {person: { name: "Jack", age: 24}, hobies: ["reading", "basket", "judo"] }
+#     ]
+# 		def reading_as_hobby_test(hobies)
+# 			reading_as_hobby_result = hobies.include?("reading")
+# 		end
 					
-		student.each do |student|
-							reading_as_hobby_result = reading_as_hobby_test(student[:hobies])
-							if reading_as_hobby_result == true
-								puts "EXO 2 : The name of people who have “reading” as a hobby is : #{student[:person][:name]}"
-							end
-						end
-end
+# 		student.each do |student|
+# 			reading_as_hobby_result = reading_as_hobby_test(student[:hobies])
+#         if reading_as_hobby_result == true
+#           puts "EXO 2 : The name of people who have “reading” as a hobby is : #{student[:person][:name]}"
+#         end
+# 		end
+# end
 
 #nested_data_structures_manipulation()
 
@@ -134,7 +146,7 @@ def complex_data_filtering
     {id: 4, customer_name: "Jack", items: [{product_name: "product4", quantity: 2}]}
   ]
 	# La méthode select est utilisée pour filtrer les commandes
-	#	Le bloc de code passé à select itère sur chaque order
+	#	Le bloc de code passé à select itère sur chaque order (sur chaque élément du hash orders)
   quantity_superior_at_10 = orders.select do |order|
 		# Pour chaque order, la méthode any? est utilisée sur order[:items] 
 		# la méthode any? est utilisée en Ruby pour déterminer 
@@ -144,13 +156,15 @@ def complex_data_filtering
       item[:quantity] > 10
     end
   end
-
+  # La méthode .each parcourir les éléments d’une collection, comme un tableau (array) ou un hash. 
+  # Elle permet d’itérer sur chaque élément de la collection et d’exécuter un bloc de code pour chaque élément.
 	# La méthode each est utilisée pour itérer sur quantity_superior_at_10
 	# quantity_superior_at_10 contient maintenant les commandes où au moins un article a une quantité > 10
-  quantity_superior_at_10.each do |order|
-		puts "EXO 3 : orders where at least one item has a quantity greater than 10 : "
-    puts "Order ID: #{order[:id]}, Customer Name: #{order[:customer_name]}"
-  end
+  # quantity_superior_at_10.each do |order|
+	# 	puts "EXO 3 : orders where at least one item has a quantity greater than 10 : "
+  #   puts "Order ID: #{order[:id]}, Customer Name: #{order[:customer_name]}"
+  # end
+  # quantity_superior_at_10
 end
 
 #complex_data_filtering()
@@ -165,18 +179,28 @@ def hash_of_arrays_of_hashes
 
   # Parcourir chaque département
   departments.each do |department_name, employees|
+    # Méthode utilisée pour parcourir chaque élément d’un hash ou d’un tableau. 
+    # Dans ce cas, elle parcourt chaque paire clé(department_name) / valeur(employees) dans le hash departments.
+
     # Calculer le salaire total pour chaque département
     # La méthode .reduce est une méthode d’énumération qui prend un argument initial (dans ce cas, 0) et un bloc.
     # L’argument initial (0) sert de valeur de départ pour l’accumulation
     # Le bloc prend deux paramètres : sum et employee
 	  # sum est l’accumulateur qui garde la somme courante des salaires
 	  # employee est l’élément actuel du tableau employees (c’est-à-dire un hash représentant un employé)
+
+    # employees : C’est le tableau des employés dans un département.
+    # 0 : C’est la valeur initiale de l’accumulateur sum. Cela signifie que sum commence à 0.
+    # sum : C’est l’accumulateur qui commence à 0 et s’accumule à chaque itération.
+	  # employee : C’est l’élément courant du tableau employees, qui est un hash représentant un employé.
+    # La méthode .reduce prend un tableau d’employés et accumule leurs salaires en partant de 0.
     total_salary = employees.reduce(0) do |sum, employee|
       sum + employee[:salary]
     end
     
     # Afficher le salaire total pour chaque département
-    puts "EXO 4 : Total salary for #{department_name}: #{total_salary} euros"
+    # puts "EXO 4 : Total salary for #{department_name}: #{total_salary} euros"
+    total_salary
   end
 end
 
@@ -320,7 +344,17 @@ def flattening_nested_arrays_and_hashes
   puts "EXO 8 : Flatten this structure to create an array of hashes with keys course_name, student_name, and grade : #{flattened_array}"
 end
 
-#flattening_nested_arrays_and_hashes()
+# Résultat : 
+# [{:course_name=>"Math 101", :student_name=>"Alice", :grade=>"A"},
+#  {:course_name=>"Math 101", :student_name=>"Bob", :grade=>"B"}, 
+#  {:course_name=>"History 202", :student_name=>"Charlie", :grade=>"B"},
+#   {:course_name=>"History 202", :student_name=>"David", :grade=>"A"},
+#    {:course_name=>"Biology 303", :student_name=>"Eve", :grade=>"C"}, 
+#    {:course_name=>"Biology 303", :student_name=>"Frank", :grade=>"B"}]
+
+
+flattening_nested_arrays_and_hashes()
+
 
 #EXO B9
 def advanced_data_merging
@@ -430,7 +464,7 @@ books = [
   {title: "titre6", author: "author6", year: 2006, genres: ["comedy", "thriller"]},
 ]
 # Appeler la méthode de validation
-data_structure_validation(books)
+# data_structure_validation(books)
 
 =begin
 =end
