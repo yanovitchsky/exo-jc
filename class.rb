@@ -1,29 +1,29 @@
 
 # # EXO1
-# class create_a_simple_class
-  
-# end
+class SimpleClass
+
+end
 
 # # EXO2
-# class add_attributes_with_attr_accessor
-#   attr_accessor :first_name, :last_name
+class AddAttributesAndMethods
+  attr_accessor :first_name, :last_name
 
-# end
+end
  
 # # EXO3
-# class initialize_attributes
-#   attr_accessor :first_name, :last_name
+class InitializeAttributes
+  attr_accessor :first_name, :last_name
 
-#   def initialize
-#     @first_name = first_name
-#     @last_name = last_name
-#   end
-# end
+  def initialize
+    @first_name = first_name
+    @last_name = last_name
+  end
+end
 
 #EX20 : Using Modules for Shared Behavior, include a module in the class to add shared methods.
-module Shared_behavior
+module SharedBehavior
 
-  def behavior1()
+  def behavior_1()
     puts "EX20 : Behavior1"
   end
   def behavior2()
@@ -34,7 +34,7 @@ end
 # EXO1 : Define a basic class with no attributes or methods.
 class Student
   #EX20 : Using Modules for Shared Behavior, include a module in the class to add shared methods.
-  include Shared_behavior
+  include SharedBehavior
   # EXO2 :Add attributes to the class using attr_accessor.
   # attr_accessor :name, :age
   
@@ -52,16 +52,14 @@ class Student
     puts "Name : #{@name} and Age : #{@age} ans."
   end
   #EX06 : Define a method at the class level using self.
-  def self.bonjour(name6,age6)
-    @name6 = name6
-    @age6 = age6
-    puts "Bonjour #{@name6}, tu as #{@age6} ans."
+  def self.bonjour(name6, age6)
+    puts "Bonjour #{name6}, tu as #{age6} ans."
   end
   #EXO7 : Add a method that modifies the attributes of an instance.
-  def modifies_the_attributes_of_an_instance(name7,age7)
-    @name7 = name + " Jr"
-    @age7 = age - 10
-    puts "Bonjour #{@name7}, tu as #{@age7} ans."
+  def modifies_the_attributes_of_an_instance(name7, age7)
+    @name = name7 + " Jr"
+    @age = age - 10
+    puts "Bonjour #{@name}, tu as #{@age} ans."
   end
   # EX09 : non demandé mais ajouté pour tester l'appel de la private method depuis l'intérieur de la class
   def call_private_method
