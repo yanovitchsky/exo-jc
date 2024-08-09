@@ -58,16 +58,16 @@ end
 #######################
 
 #EXO B1 V1
-def array_of_hashes_with_nested_arrays
-    students = [
-      { name: "Anna", age: 21, grades: [14, 12, 9, 5] },
-      { name: "Paul", age: 22, grades: [19, 5, 4, 12] },
-      { name: "Olga", age: 23, grades: [16, 5, 12, 7] },
-      { name: "Jack", age: 24, grades: [8, 4, 16, 12] }
-    ]
-    #def calculate_average_grade(grades)
-    #average_grade = grades.sum.to_f / grades.size
-    #end
+# def array_of_hashes_with_nested_arrays
+#     students = [
+#       { name: "Anna", age: 21, grades: [14, 12, 9, 5] },
+#       { name: "Paul", age: 22, grades: [19, 5, 4, 12] },
+#       { name: "Olga", age: 23, grades: [16, 5, 12, 7] },
+#       { name: "Jack", age: 24, grades: [8, 4, 16, 12] }
+#     ]
+#     #def calculate_average_grade(grades)
+#     #average_grade = grades.sum.to_f / grades.size
+#     #end
 
     students.each do |student|
       # average_grade = calculate_average_grade(student[:grades])
@@ -135,12 +135,22 @@ print nested_data_structures_manipulation
 # 		end
 # end
 
+# def nested_data_structures_manipulation_refactor
+#   student = [
+#     {person: { name: "Anna", age: 21}, hobies: ["foot", "basket", "judo"] },
+#     {person: { name: "Paul", age: 22}, hobies: ["foot", "reading", "chess"] },
+#     {person: { name: "Olga", age: 23}, hobies: ["reading", "basket", "judo"] },
+#     {person: { name: "Jack", age: 24}, hobies: ["reading", "basket", "judo"] }
+#   ]
+
+  
+# end
 #nested_data_structures_manipulation()
 
 #EXO B3 
 def complex_data_filtering
 	orders = [
-    {id: 1, customer_name: "Anna", items: [{product_name: "product1", quantity: 5}]},
+    {id: 1, customer_name: "Anna", items: [{product_name: "product1", quantity: 5}, {product_name: "product2", quantity: 15}]},
     {id: 2, customer_name: "Paul", items: [{product_name: "product2", quantity: 10}]},
     {id: 3, customer_name: "Olga", items: [{product_name: "product3", quantity: 25}]},
     {id: 4, customer_name: "Jack", items: [{product_name: "product4", quantity: 2}]}
@@ -197,11 +207,13 @@ def hash_of_arrays_of_hashes
     total_salary = employees.reduce(0) do |sum, employee|
       sum + employee[:salary]
     end
+    hash[department_name] = total_salary
     
     # Afficher le salaire total pour chaque département
     # puts "EXO 4 : Total salary for #{department_name}: #{total_salary} euros"
     total_salary
   end
+  # hash
 end
 
 #hash_of_arrays_of_hashes()
@@ -287,7 +299,7 @@ def data_aggregation_and_transformation
 		# Transformer le hash groupé en triant les produits par prix dans chaque catégorie
 		transformed_products = grouped_products.transform_values do |products|
       # Trier les produits par prix décroissant
-			products.sort_by { |product| -product[:price] }.map { |product| product[:name] }
+			res = products.sort_by { |product| -product[:price] }.map { |product| product[:name] }
 		end
 		puts "EXO 7 : Create a hash where keys are categories and values are arrays of product names sorted by price in descending order :"
 		transformed_products.each do |category, product_names|
@@ -466,5 +478,8 @@ books = [
 # Appeler la méthode de validation
 # data_structure_validation(books)
 
-=begin
-=end
+# print nested_data_structures_manipulation
+# print array_of_hashes_with_nested_arrays
+# print complex_data_filtering
+# print hash_of_arrays_of_hashes
+print data_aggregation_and_transformation

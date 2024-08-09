@@ -39,9 +39,17 @@ def array_select
 	array.each { |x| puts x if x % 2 == 0 }
 end
 
-array_initialization_and_access()
-array_insertion_and_deletion()
-iterating_over_an_array()
-array_map()
-array_select()
+def select_array
+	# array = [2,3,5,8,11]
+	# p array.select{|x| x.even?}
+	# p array.select(&:even?)
 
+end
+
+# array_initialization_and_access()
+# array_insertion_and_deletion()
+# iterating_over_an_array()
+# array_map()
+# array_select()
+
+select_array()

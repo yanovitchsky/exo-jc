@@ -1,0 +1,27 @@
+current directory: /Users/yannakoun/Project/Perso/exo-jc/.vendor/ruby/3.2.0/gems/rbs-3.5.2/ext/rbs_extension
+/Users/yannakoun/.rvm/rubies/ruby-3.2.2/bin/ruby -I /Users/yannakoun/.rvm/rubies/ruby-3.2.2/lib/ruby/site_ruby/3.2.0 -r ./siteconf20240806-50067-e14z88.rb extconf.rb
+/Users/yannakoun/.rvm/rubies/ruby-3.2.2/bin/ruby: warning: Ruby was built without YJIT support. You may need to install rustc to build Ruby with YJIT.
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/yannakoun/Project/Perso/exo-jc/.vendor/ruby/3.2.0/gems/rbs-3.5.2/ext/rbs_extension
+make "DESTDIR=" clean
+
+current directory: /Users/yannakoun/Project/Perso/exo-jc/.vendor/ruby/3.2.0/gems/rbs-3.5.2/ext/rbs_extension
+make "DESTDIR="
+compiling constants.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling ruby_objs.c
+compiling unescape.c
+linking shared-object rbs_extension.bundle
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/yannakoun/Project/Perso/exo-jc/.vendor/ruby/3.2.0/gems/rbs-3.5.2/ext/rbs_extension
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 rbs_extension.bundle ./.gem.20240806-50067-7abnd
